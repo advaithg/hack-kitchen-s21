@@ -5,6 +5,8 @@ import Login from './Login';
 
 //________________________________________________________________________________________________________________________
 
+//__chicken__
+
 function App() {
   const [imgUrl, setImgUrl] = useState("")
   const [imgName, setImgName] = useState("")
@@ -53,6 +55,7 @@ function App() {
     )
     logIn(1)
   }
+
   else{
     if(numOfAPICalls<=5){
       return (
