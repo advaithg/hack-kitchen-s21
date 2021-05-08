@@ -17,17 +17,15 @@ export default class Login extends React.Component{
     handleSubmit = (event) => {
 
         fetch("/validate", {
-            method: "POST",
             body: JSON.stringify({username: this.state.username, password: this.state.password}),
             headers: {
                 "content-type": "application/json"
             }
         })
         .then(res => {
-            const {status} = res; 
             return res.json();
         }).then(data => {
-            this.validate(data.action);
+            this.validate(data.msg);
         })
         .catch(err => {
            console.log(err);
@@ -36,12 +34,12 @@ export default class Login extends React.Component{
         event.preventDefault();
     }
 
-    validate = action => {
-        if(action === "alreadyexists"){
-
+    validate = msg => {
+        if(msg === "New"){
+            // New user
         }
         else{
-            //go to site?
+            // Existing user
         }
     }
 

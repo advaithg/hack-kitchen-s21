@@ -46,7 +46,7 @@ function App() {
   }, [numOfAPICalls], [])
 
   console.log("imgUrl", imgUrl)
-  if(loggedIn == 0)
+  if(loggedIn == 1)
   {
     return (
       <Login/>
@@ -59,13 +59,16 @@ function App() {
         <div id = 'bg'  onClick = {() => {
           incNumOfAPICalls(numOfAPICalls + 1)
         }}>
-          <img className='backgroundimg' src={imgUrl === "" ?
+
+            <img className='backgroundimg' src={imgUrl === "" ?
             "" : imgUrl} />
-            <br/>
           <h3 className='imglabel'>
             {imgName}
           </h3>
           Inspired by <a href='https://www.youtube.com/watch?v=GY9MrenABvQ'> MEATURDUCKBALIZZA </a>
+          <div style={{paddingTop:"30px"}}>
+          BEANS
+          </div>
         </div>
       )
     }
