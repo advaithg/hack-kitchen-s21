@@ -1,4 +1,4 @@
-from flask import Flask 
+from flask import Flask
 import json
 
 app = Flask(__name__)
@@ -6,15 +6,15 @@ app = Flask(__name__)
 @app.route('/call1')
 def makeCall1():
     return json.dumps({
-        imgUrl:'./img/chicken.webp',
-        imgName: 'MEATURBALIZZA'
+        "imgUrl":'/chicken.jpg',
+        "imgName": 'MEATURBALIZZA'
     })
 
 @app.route('/call2')
 def makeCall2():
     return json.dumps({
-        imgUrl:'./img/chicken.webp',
-        imgName: 'Chicken | मुर्गी'
+        "imgUrl": '/chicken.jpg',
+        "imgName": 'Chicken'
     })
 
 @app.route('/call3')
