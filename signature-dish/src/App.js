@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useEffect, useState } from 'react'
 import ReactPlayer from "react-player";
+import Login from './Login';
 
 //________________________________________________________________________________________________________________________
 
@@ -8,50 +9,73 @@ function App() {
   const [imgUrl, setImgUrl] = useState("")
   const [imgName, setImgName] = useState("")
   const [numOfAPICalls, incNumOfAPICalls] = useState(0)
-  useEffect(() => {
-    fetch("/call1")
-      .then(res => {
-        const {status} = res
-        return res.json()
-      }).then(data => {
-      console.log("data", data)
-      setImgUrl(data.imgUrl)
-      setImgName(data.imgName)
-    })
-      .catch(err => {
-        console.log(err)
-      })
-  }, [])
+  const [loggedIn, logIn] = useState("0")
 
- /* useEffect(() => {
-    let requestId = '/call' + numOfAPICalls
-    console.log("requestId", requestId)
-    fetch(requestId)
-    .then(res => {
-        const {status} = res
-        return res.json()
-     }).then(data => {
-       console.log("data", data)
-        setImgUrl(data.imgUrl)
-        setImgName(data.imgName)
-     })
-     .catch(err => {
-       console.log(err)
-     })
-  }, [numOfAPICalls])*/
+  // useEffect(() => {
+  //   fetch("/call1")
+  //     .then(res => {
+  //       const {status} = res
+  //       return res.json()
+  //     }).then(data => {
+  //     console.log("data", data)
+  //     setImgUrl(data.imgUrl)
+  //     setImgName(data.imgName)
+  //   })
+  //     .catch(err => {
+  //       console.log(err)
+  //     })
+  // }, [])
+
+  useEffect(() => {
+    if (numOfAPICalls < 6) {
+      let requestId = '/call' + numOfAPICalls
+      console.log("requestId", requestId)
+      fetch(requestId)
+      .then(res => {
+          const {status} = res
+          return res.json()
+       }).then(data => {
+         console.log("data", data)
+          setImgUrl(data.imgUrl)
+          setImgName(data.imgName)
+       })
+       .catch(err => {
+         console.log(err)
+       })
+    }
+  }, [numOfAPICalls], [])
+
   console.log("imgUrl", imgUrl)
-  return (
-    <div id = 'bg'  onClick = {() => {
-      incNumOfAPICalls(numOfAPICalls + 1)
-    }}>
-      <img className='backgroundimg' src={imgUrl === "" ?
-        "https://via.placeholder.com/150" : imgUrl} />
-      <h3 className='imglabel'>
-        {imgName}
-      </h3>
-      {/* <a href='https://www.youtube.com/watch?v=GY9MrenABvQ'> MEATURDUCKBALIZZA </a> */}
-    </div>
-  )
+  if(loggedIn == 0)
+  {
+    return (
+      <Login/>
+    )
+    logIn(1)
+  }
+  else{
+    if(numOfAPICalls<=5){
+      return (
+        <div id = 'bg'  onClick = {() => {
+          incNumOfAPICalls(numOfAPICalls + 1)
+        }}>
+          <img className='backgroundimg' src={imgUrl === "" ?
+            "" : imgUrl} />
+            <br/>
+          <h3 className='imglabel'>
+            {imgName}
+          </h3>
+          Inspired by <a href='https://www.youtube.com/watch?v=GY9MrenABvQ'> MEATURDUCKBALIZZA </a>
+        </div>
+      )
+    }
+    else{
+      return(
+        <EasterEgg/>
+      )
+    }
+  
+  }
 }
 
 //________________________________________________________________________________________________________________________
