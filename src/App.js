@@ -102,10 +102,9 @@ function App() {
             name = {name}
             setName = {(input) => setName(input)}
        />
-       {alertMessage === '' ? <div><div> : <div className="alert card" onClick={() => {
+       {alertMessage === '' ? <div></div> : <div className="alert card" onClick={() => {
             setAlertMessage("")
-          }}> }
-         <CloseIcon 
+          }}> <CloseIcon 
           style={{
             position: "absolute", 
             top: "1px", 
@@ -115,6 +114,8 @@ function App() {
         />
          {alertMessage}
       </div>
+}
+         
       <div className="center">
         <div id='restaurantsection'>
           <div className="card">
@@ -133,6 +134,7 @@ function App() {
                   name = {name}
                   setAlertMessage = {setAlertMessage} 
                />
+        
           </div>
         </div>
       </div>
@@ -146,8 +148,7 @@ export default App;
 const SubmitButton = (props) => {
   return (
     <button onClick={() => handleButtonSubmit(props.name, props.loggedIn, props.setAlertMessage)}
-      className="button"
-      >
+      className="button" >
         Make your order!
     </button>
   )

@@ -113,6 +113,11 @@ div.navigationBar > div:active {
   width: 85%;
   margin:10px;
   padding-left: 20px;
+  cursor: pointer;
+}
+
+.menuitem:hover{
+  background-color: #00000010
 }
 
 #menulist{
