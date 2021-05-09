@@ -2,7 +2,7 @@ import './App.css';
 import firebase from 'firebase/app';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
 import CloseIcon from '@material-ui/icons/Close';
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 
 function App() {
 
@@ -49,7 +49,7 @@ function App() {
             </div>
           )
         } else {
-          return
+          return <div/>
         }
       }
 
@@ -77,7 +77,7 @@ function App() {
             </div>
           )
         } else {
-          return
+          return <div/>
         }
       }
 
