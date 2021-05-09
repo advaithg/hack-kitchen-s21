@@ -12,9 +12,11 @@ We attempted to implement login, but couldn't do it in the 2.5 hour time limit w
 
 
 
-<b>Challenge 2: Made another quick website for "Build your own restaurant" using react<b>
+<b>Challenge 2: Made another quick website for "Build your own restaurant" using react</b>
 <br>
 We named our restaurant off the first challenge -  calling it garegguckenizza.<br>
 It has limited ingredients, but the combinations truly make it special - see if you can make meaturduckballizza!<br>
 (click on our name for a surprise!)
 <br>
+
+<b>Challenge 3: Used the Chef programming language to complete 8 tasks</b>
